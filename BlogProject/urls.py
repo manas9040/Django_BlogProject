@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from blog import views
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.post_list_view),
@@ -23,3 +25,7 @@ urlpatterns = [
     path('<year>/<month>/<day>/<post>/', views.post_details_view,name="post_detail"),
     path('<id>/share/', views.send_mail_view),
 ]
+
+# if settings.DEBUG:
+urlpatterns += static (settings.STATIC_URL ,document_root = settings.STATICFILES_DIRS[0])
+
