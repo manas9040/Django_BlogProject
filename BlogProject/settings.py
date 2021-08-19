@@ -125,6 +125,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     Path.joinpath(BASE_DIR,'statics')
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # SMTP MAIL Configuration
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
