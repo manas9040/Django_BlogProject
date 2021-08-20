@@ -18,12 +18,17 @@ from django.urls import path
 from blog import views
 from django.conf import settings
 from django.conf.urls.static import static
+
+from django.views.static import serve
+from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.post_list_view),
     path('tag/<tag_slug>/', views.post_list_view,name='post_list_by_tag_name'),
     path('<year>/<month>/<day>/<post>/', views.post_details_view,name="post_detail"),
     path('<id>/share/', views.send_mail_view),
+    url('static/<path>/', serve,{'document_root':settings.STATIC_DIR}),
+
 ]
 
 # if settings.DEBUG:
