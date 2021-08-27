@@ -24,9 +24,9 @@ STATIC_DIR=Path.joinpath(BASE_DIR,'statics')
 SECRET_KEY = 'g&&!ea3q^wxz3ven1)@soxzl(cfon5t)sb5!toz4bo8pm40&-8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','myprojectb.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -125,16 +125,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[
-    Path.joinpath(BASE_DIR,'statics')
+STATIC_DIR,
 ]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # SMTP MAIL Configuration
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
 EMAIL_HOST_USER='manasranjan9899@gmail.com'
-EMAIL_HOST_PASSWORD=str(9776558561).encode("unicode-escape")
-# .encode('utf-8')
+EMAIL_HOST_PASSWORD='bagumkkawfycjvjh'
 EMAIL_USE_TLS=True
-# EMAIL_USE_SSL=False
+DEFAULT_FROM_EMAIL='BlogProject<manasranjan9899@gmail.com>'
+
+# DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
